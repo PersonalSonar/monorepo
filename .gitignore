@@ -1,0 +1,29 @@
+# Node.js / API
+api/node_modules/
+api/dist/
+api/.env.local
+api/npm-debug.log
+
+# Python / Worker
+worker/venv/
+worker/__pycache__/
+worker/*.pyc
+worker/jobs.json
+worker/.env.local
+
+# Go / CLI
+cli/monorepo
+cli/.env.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# OS
+Thumbs.db
+.env
+.env.*.local

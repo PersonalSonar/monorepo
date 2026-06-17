@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: api/Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+      - PORT=3000
+    command: npm run dev
+    volumes:
+      - ./api/src:/app/api/src
+
+  worker:
+    build:
+      context: .
+      dockerfile: worker/Dockerfile
+    environment:
+      - LOG_LEVEL=INFO
+    volumes:
+      - ./worker:/app/worker
+
+  cli:
+    build:
+      context: .
+      dockerfile: cli/Dockerfile
+    command: tail -f /dev/null
+    volumes:
+      - ./cli:/app/cli
+
+volumes:
+  api-data:
+  worker-data:
